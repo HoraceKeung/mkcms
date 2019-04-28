@@ -1,0 +1,19 @@
+{
+	"name": "mkxicms",
+	"version": "1.0.0",
+	"description": "MKXI CMS",
+	"author": "Horace Keung",
+	"private": true,
+	"scripts": {
+		"dev": "nuxt -o",
+		"live": "nuxt generate && firebase deploy"
+	},
+	"dependencies": {
+		"@nuxtjs/pwa": "^3.0.0-beta.14",
+		"nuxt": "^2.6.3"
+	},
+	"devDependencies": {
+		"nuxt-purgecss": "^0.2.1",
+		"tailwindcss": "^1.0.0-beta.8"
+	}
+}
