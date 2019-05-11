@@ -2,8 +2,9 @@ export default {
 	mode: 'spa',
 	loading: false,
 	manifest: {
-		name: 'MKXI CMS',
-		short_name: 'MKXI CMS',
+		name: 'Mortal Kombat Kompanion',
+		short_name: 'MK Kompanion',
+		theme_color: '#fda913',
 		orientation: 'portrait'
 	},
 	modules: ['@nuxtjs/pwa'],

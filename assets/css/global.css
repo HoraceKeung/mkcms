@@ -20,6 +20,10 @@ html {
 	-webkit-font-smoothing: antialiased;
 	box-sizing: border-box;
 }
+body {
+	background-image: linear-gradient(theme('colors.coal-900'), theme('colors.coal-600'));
+	@apply text-white h-screen
+}
 *, *:before, *:after {
 	box-sizing: border-box;
 	margin: 0;
