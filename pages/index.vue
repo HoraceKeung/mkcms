@@ -22,7 +22,7 @@
 export default {
 	methods: {
 		goToCms () {
-			console.log('go to cms')
+			this.$router.push(this.$store.state.user ? '/cms' : '/sign-in')
 		}
 	}
 }

@@ -7,7 +7,10 @@ export default {
 		theme_color: '#fda913',
 		orientation: 'portrait'
 	},
-	modules: ['@nuxtjs/pwa'],
+	modules: ['nuxt-purgecss', '@nuxtjs/pwa'],
+	purgeCSS: {
+		mode: 'postcss'
+	},
 	build: {
 		postcss: {
 			plugins: {
@@ -16,5 +19,8 @@ export default {
 		}
 	},
 	css: ['~/assets/css/global.css'],
-	plugins: ['~/plugins/main.js']
+	plugins: ['~/plugins/firebase.js', '~/plugins/main.js'],
+	router: {
+		middleware: 'routeGuard'
+	}
 }

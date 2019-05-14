@@ -16,6 +16,10 @@ module.exports = {
 		spacing: {...defaultConfig.theme.spacing,
 			'36': '9rem'
 		},
+		borderColor: theme => ({
+			...theme('colors'),
+			default: theme('colors.coal')
+		}),
 		container: {
 			center: true,
 			padding: '1rem'

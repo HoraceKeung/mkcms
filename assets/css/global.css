@@ -32,3 +32,16 @@ body {
 button:focus, textarea:focus {
 	@apply outline-none
 }
+/* Form */
+.form-group {
+	@apply flex flex-col
+}
+.form-group label {
+	@apply mb-1
+}
+.form-control {
+	@apply rounded-lg border-2 bg-coal-900 p-2
+}
+.form-control:focus {
+	@apply border-york-600 outline-none
+}
