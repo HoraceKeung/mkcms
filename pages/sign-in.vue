@@ -23,6 +23,7 @@
 <script>
 import {fireAuth} from '~/plugins/firebase.js'
 export default {
+	layout: 'landing',
 	methods: {
 		signIn () {
 			fireAuth.signInWithEmailAndPassword(this.email, this.password).then(res => {

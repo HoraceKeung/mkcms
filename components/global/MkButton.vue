@@ -1,7 +1,7 @@
 <template>
-	<div @click="$emit('click')" class="h-10 flex cursor-pointer">
+	<div @click="$emit('click')" class="h-10 flex cursor-pointer" style="transform: translateX(0.25rem);">
 		<div class="left">
-			<p class="uppercase m-auto font-bold">{{text}}</p>
+			<p class="uppercase m-auto font-bold leading-none">{{text}}</p>
 		</div>
 		<div class="right">
 			<component v-if="icon" :is="icon" class="m-auto"/>
@@ -28,7 +28,7 @@ export default {
 		90% 100%,
 		0 100%
 	);
-	@apply bg-york h-full w-36 flex
+	@apply bg-york h-full w-36 flex text-center
 }
 .right {
 	clip-path: polygon(

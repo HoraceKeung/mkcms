@@ -1,0 +1,29 @@
+<template>
+	<section class="container">
+		<div class="flex flex-wrap -mx-2 my-4">
+			<div v-for="p in pages" :key="p" class="w-full sm:w-1/2 md:w-1/4 px-2 mb-4 flex">
+				<n-link :to="`/cms/${p}`" class="mx-auto">
+					<mk-button :text="p.replace(/([A-Z]+)/g, ' $1')" icon="arrow"/>
+				</n-link>
+			</div>
+		</div>
+	</section>
+</template>
+
+<script>
+export default {
+	data: () => ({
+		pages: [
+			'abilities',
+			'carousel',
+			'characterModel',
+			'characters',
+			'dynamic',
+			'flamelink',
+			'media',
+			'moves',
+			'news'
+		]
+	})
+}
+</script>

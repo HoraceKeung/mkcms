@@ -20,6 +20,7 @@
 
 <script>
 export default {
+	layout: 'landing',
 	methods: {
 		goToCms () {
 			this.$router.push(this.$store.state.user ? '/cms' : '/sign-in')
