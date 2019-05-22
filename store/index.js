@@ -1,9 +1,13 @@
 export const state = () => ({
-	user: null
+	user: null,
+	itemInView: null
 })
 
 export const mutations = {
 	setUser (state, obj) {
 		state.user = obj
+	},
+	setItemInView (state, obj) {
+		state.itemInView = obj
 	}
 }

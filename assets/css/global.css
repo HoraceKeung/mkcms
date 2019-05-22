@@ -23,7 +23,7 @@ html {
 }
 body {
 	background-image: linear-gradient(theme('colors.coal-900'), theme('colors.coal-600'));
-	@apply text-white h-screen
+	@apply text-white min-h-screen
 }
 *, *:before, *:after {
 	box-sizing: border-box;
@@ -32,6 +32,14 @@ body {
 }
 button:focus, textarea:focus {
 	@apply outline-none
+}
+.mk-box {
+	transition: all .5s;
+	@apply border border-gold
+}
+.mk-box:hover {
+	box-shadow: 0 0 60px rgba(253,169,15,.5);
+	@apply border-white
 }
 /* Form */
 .form-group {

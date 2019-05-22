@@ -10,7 +10,7 @@ module.exports = {
 			'coal': '#686c6c',
 			'coal-600': '#2c3232',
 			'coal-700': '#201f1b',
-			'coal-800': '#1f2424',
+			'coal-800': '#111',
 			'coal-900': '#0e0e0c'
 		},
 		spacing: {...defaultConfig.theme.spacing,
