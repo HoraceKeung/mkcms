@@ -3,8 +3,8 @@ let defaultConfig = require('tailwindcss/defaultConfig')
 module.exports = {
 	theme: {
 		colors: {...defaultConfig.theme.colors,
-			'york': '#fda913',
-			'york-600': '#d88702',
+			'gold': '#fda90f',
+			'gold-600': '#d88700',
 
 			'coal-400': '#545350',
 			'coal': '#686c6c',
@@ -14,7 +14,11 @@ module.exports = {
 			'coal-900': '#0e0e0c'
 		},
 		spacing: {...defaultConfig.theme.spacing,
+			'7': '1.75rem',
 			'36': '9rem'
+		},
+		maxWidth: {...defaultConfig.theme.maxWidth,
+			'40': '10rem'
 		},
 		borderColor: theme => ({
 			...theme('colors'),

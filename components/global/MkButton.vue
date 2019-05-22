@@ -1,7 +1,7 @@
 <template>
-	<div @click="$emit('click')" class="h-10 flex cursor-pointer" style="transform: translateX(0.25rem);">
+	<div @click="$emit('click')" class="btn">
 		<div class="left">
-			<p class="uppercase m-auto font-bold leading-none">{{text}}</p>
+			<span class="uppercase font-bold leading-none whitespace-no-wrap mx-auto">{{text}}</span>
 		</div>
 		<div class="right">
 			<component v-if="icon" :is="icon" class="m-auto"/>
@@ -21,23 +21,37 @@ export default {
 </script>
 
 <style scoped>
+.btn {
+	transition: all .5s;
+	@apply cursor-pointer flex justify-center select-none w-full
+}
+.btn:hover {
+	box-shadow: 0 0 60px rgba(253,169,15,.5);
+}
+.btn:hover .right {
+	@apply bg-white
+}
+.btn:hover .right::before {
+	border-color: transparent transparent white;
+}
 .left {
-	clip-path: polygon(
-		0 0,
-		100% 0,
-		90% 100%,
-		0 100%
-	);
-	@apply bg-york h-full w-36 flex text-center
+	@apply bg-gold text-white w-full flex py-4 pl-4 pr-2 relative
+}
+.left::after {
+	content: "";
+	right: -1.5rem;
+	border-width: 3rem 1.5rem 0 0;
+	border-color: theme('colors.gold') transparent transparent;
+	@apply absolute top-0
 }
 .right {
-	clip-path: polygon(
-		30% 0,
-		100% 0,
-		100% 100%,
-		0 100%
-	);
-	transform: translateX(-0.5rem);
-	@apply bg-york-600 h-full w-12 flex pl-2
+	@apply bg-gold-600 flex pl-2 pr-4 py-4 ml-7 relative
+}
+.right::before {
+	content: "";
+	left: -1.5rem;
+	border-width: 0 0 3rem 1.5rem;
+	border-color: transparent transparent theme('colors.gold-600');
+	@apply absolute top-0
 }
 </style>

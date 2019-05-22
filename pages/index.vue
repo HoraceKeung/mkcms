@@ -1,8 +1,8 @@
 <template>
 	<section class="container">
 		<div class="flex py-4">
-			<div><img class="h-16 w-16" src="/icon.png" alt="logo"></div>
-			<mk-button text="CMS" icon="arrow" class="ml-auto my-auto" @click="goToCms"/>
+			<div class="mr-auto"><img class="h-16 w-16" src="/icon.png" alt="logo"></div>
+			<mk-button text="CMS" icon="arrow" class="max-w-40 my-auto" @click="goToCms"/>
 		</div>
 		<div class="text-center">
 			<h1 class="font-bold text-3xl">MORTAL KOMBAT KOMPANION</h1>
