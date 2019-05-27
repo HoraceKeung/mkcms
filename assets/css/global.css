@@ -33,11 +33,15 @@ body {
 button:focus, textarea:focus {
 	@apply outline-none
 }
+.btn {
+	transition: all .5s;
+	@apply bg-gold py-2 px-4 uppercase font-bold
+}
 .mk-box {
 	transition: all .5s;
 	@apply border border-gold
 }
-.mk-box:hover {
+.mk-box:hover, .btn:hover {
 	box-shadow: 0 0 60px rgba(253,169,15,.5);
 	@apply border-white
 }
@@ -45,7 +49,7 @@ button:focus, textarea:focus {
 .form-group {
 	@apply flex flex-col
 }
-.form-group label {
+.form-group label, .form-label {
 	@apply mb-1
 }
 .form-control {

@@ -1,5 +1,5 @@
 <template>
-	<div @click="$emit('click')" class="btn">
+	<div @click="$emit('click')" class="mkbtn">
 		<div class="left">
 			<span class="uppercase font-bold leading-none whitespace-no-wrap mx-auto">{{text}}</span>
 		</div>
@@ -21,17 +21,17 @@ export default {
 </script>
 
 <style scoped>
-.btn {
+.mkbtn {
 	transition: all .5s;
 	@apply cursor-pointer flex justify-center select-none w-full
 }
-.btn:hover {
+.mkbtn:hover {
 	box-shadow: 0 0 60px rgba(253,169,15,.5);
 }
-.btn:hover .right {
+.mkbtn:hover .right {
 	@apply bg-white
 }
-.btn:hover .right::before {
+.mkbtn:hover .right::before {
 	border-color: transparent transparent white;
 }
 .left {
