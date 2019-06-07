@@ -35,7 +35,13 @@ button:focus, textarea:focus {
 }
 .btn {
 	transition: all .5s;
-	@apply bg-gold py-2 px-4 uppercase font-bold
+	@apply py-2 px-4 uppercase font-bold
+}
+.btn-gold {
+	@apply bg-gold
+}
+.btn-white {
+	@apply bg-white text-black
 }
 .mk-box {
 	transition: all .5s;
@@ -47,7 +53,7 @@ button:focus, textarea:focus {
 }
 /* Form */
 .form-group {
-	@apply flex flex-col
+	@apply flex flex-col mb-6
 }
 .form-group label, .form-label {
 	@apply mb-1
@@ -57,4 +63,9 @@ button:focus, textarea:focus {
 }
 .form-control:focus {
 	@apply border-gold-600 outline-none
+}
+/* Modal */
+.modal {
+	box-shadow: 0 0 60px rgba(253,169,15,.5);
+	@apply border border-gold bg-coal-800 flex flex-col
 }

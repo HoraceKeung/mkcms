@@ -62,7 +62,7 @@
 				<label for="slots-input">Slots</label>
 				<input id="slots-input" class="form-control" type="number" v-model.number="body.slots">
 			</div>
-			<button class="btn" type="submit" @click.prevent="save">Save</button>
+			<button class="btn btn-gold" type="submit" @click.prevent="save">Save</button>
 		</form>
 	</section>
 </template>

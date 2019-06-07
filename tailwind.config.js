@@ -20,6 +20,9 @@ module.exports = {
 		maxWidth: {...defaultConfig.theme.maxWidth,
 			'40': '10rem'
 		},
+		minHeight: {...defaultConfig.theme.minHeight,
+			'40': '10rem'
+		},
 		borderColor: theme => ({
 			...theme('colors'),
 			default: theme('colors.coal')

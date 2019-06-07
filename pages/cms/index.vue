@@ -14,14 +14,10 @@
 export default {
 	data: () => ({
 		pages: [
-			'abilities',
-			'carousel',
-			'characterModel',
 			'characters',
+			'carousel',
 			'dynamic',
-			'flamelink',
 			'media',
-			'moves',
 			'news'
 		]
 	})
