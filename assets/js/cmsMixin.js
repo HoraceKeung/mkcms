@@ -3,13 +3,16 @@ export default {
 	created () {
 		this.itemType = this.$route.path.split('/').pop()
 		fireDb.ref(this.itemType).once('value').then(snapshot => {
-			this.snapshot = snapshot.val()
+			this.$store.commit('setSnapshot', snapshot.val())
 		})
 	},
+	computed: {
+		snapshot () { return this.$store.state.snapshot }
+	},
 	methods: {
-		view (item) {
+		view (item, index) {
 			this.$store.commit('setItemInView', item)
-			this.$router.push(`/cms/${this.itemType}/${item.id}`)
+			this.$router.push(`/cms/${this.itemType}/${index}`)
 		},
 		add () {
 			this.$store.commit('setItemInView', null)
@@ -17,7 +20,6 @@ export default {
 		}
 	},
 	data: () => ({
-		itemType: null,
-		snapshot: null
+		itemType: null
 	})
 }

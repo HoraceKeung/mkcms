@@ -1,24 +1,31 @@
 import {fireDb} from '~/plugins/firebase.js'
+import uuid from 'uuid/v4'
 export default {
 	layout: 'form',
 	created () {
 		this.itemType = this.$route.path.split('/').slice(-2)[0]
 		this.body = JSON.parse(JSON.stringify(this.$store.state.itemInView || this.dataModel))
 	},
+	computed: {
+		snapshot () { return this.$store.state.snapshot }
+	},
 	methods: {
 		save () {
-			let ref = this.$route.params.id
-			if (this.$route.params.id === 'new') {
-				ref = fireDb.ref().child(this.itemType).push().key
-				this.body.id = ref
+			let clone = JSON.parse(JSON.stringify(this.snapshot))
+			let index = this.$route.params.i
+			if (index === 'new') {
+				this.body.id = uuid()
+				clone.push(this.body)
+			} else {
+				clone[index] = this.body
 			}
-			fireDb.ref(`${this.itemType}/${ref}`).set(this.body, err => {
-				if (this.$route.params.id === 'new') this.$router.push(`/cms/${this.itemType}`)
+			fireDb.ref(this.itemType).set(clone, err => {
+				if (index === 'new' && !err) this.$router.push(`/cms/${this.itemType}`)
 				alert(err || 'Data saved successfully!')
 			})
 		},
 		del () {
-			fireDb.ref(`${this.itemType}/${this.$route.params.id}`).remove().then(() => {
+			fireDb.ref(`${this.itemType}/${this.$route.params.i}`).remove().then(() => {
 				this.$router.push(`/cms/${this.itemType}`)
 				alert('Data deleted successfully!')
 			}).catch(error => {
