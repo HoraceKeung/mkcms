@@ -27,18 +27,26 @@
 				<label for="link-input">Link</label>
 				<input id="link-input" class="form-control" v-model="body.link">
 			</div>
-			<button class="btn btn-gold" type="submit" @click.prevent="save">Save</button>
+			<button class="btn btn-gold" type="submit" @click.prevent="beforeSave">Save</button>
 		</form>
 		<modal-action-confirm msg="Sure want to delete this item?" @confirm="del"/>
 	</section>
 </template>
 
 <script>
-import {fireDb} from '~/plugins/firebase.js'
+import formMixin from '~/assets/js/formMixin'
 export default {
-	layout: 'form',
-	created () {
-		this.body = this.$store.state.itemInView ? JSON.parse(JSON.stringify(this.$store.state.itemInView)) : {
+	mixins: [formMixin],
+	methods: {
+		beforeSave () {
+			if (this.body.type !== 'content') delete this.body.content
+			if (this.body.type !== 'youtube') delete this.body.videoId
+			if (this.body.type !== 'web') delete this.body.link
+			this.save()
+		}
+	},
+	data: () => ({
+		dataModel: {
 			background: null,
 			title: null,
 			type: 'content',
@@ -46,32 +54,6 @@ export default {
 			videoId: null,
 			link: null
 		}
-	},
-	methods: {
-		save () {
-			if (this.body.type !== 'content') delete this.body.content
-			if (this.body.type !== 'youtube') delete this.body.videoId
-			if (this.body.type !== 'web') delete this.body.link
-			let ref = this.$route.params.id
-			if (this.$route.params.id === 'new') {
-				ref = fireDb.ref().child('carousel').push().key
-				this.body.id = ref
-			}
-			fireDb.ref(`carousel/${ref}`).set(this.body, err => {
-				alert(err || 'Data saved successfully!')
-			})
-		},
-		del () {
-			fireDb.ref(`carousel/${this.$route.params.id}`).remove().then(() => {
-				this.$router.push('/cms/carousel')
-				alert('Data deleted successfully!')
-			}).catch(error => {
-				console.log("Remove failed: " + error.message)
-			})
-		}
-	},
-	data: () => ({
-		body: null
 	})
 }
 </script>

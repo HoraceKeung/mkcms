@@ -1,10 +1,10 @@
 <template>
 	<section>
 		<div class="flex flex-wrap -mx-2">
-			<div v-for="(c,key) in snapshot" :key="key" class="w-full sm:w-1/2 md:w-1/3 xl:w-1/4 px-2 mb-4">
-				<mk-card :image="c.background" @click="view(c)">
-					<p class="font-bold text-lg">{{c.title}}</p>
-					<p class="text-xs opacity-50">{{c.type}}</p>
+			<div v-for="(n,key) in snapshot" :key="key" class="w-full sm:w-1/2 md:w-1/3 xl:w-1/4 px-2 mb-4">
+				<mk-card :image="n.header" @click="view(n)">
+					<p class="font-bold text-lg">{{n.title}}</p>
+					<p class="text-xs opacity-50">{{n.description}}</p>
 				</mk-card>
 			</div>
 			<div class="w-full sm:w-1/2 md:w-1/3 xl:w-1/4 px-2 mb-4">
