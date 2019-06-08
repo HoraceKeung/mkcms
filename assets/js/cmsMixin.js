@@ -1,6 +1,8 @@
 import {fireDb} from '~/plugins/firebase.js'
 export default {
 	created () {
+		this.$store.commit('setSnapshot', null)
+		this.$store.commit('setItemInView', null)
 		this.itemType = this.$route.path.split('/').pop()
 		fireDb.ref(this.itemType).once('value').then(snapshot => {
 			this.$store.commit('setSnapshot', snapshot.val())
