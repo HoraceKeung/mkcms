@@ -1,7 +1,7 @@
 <template>
 	<section class="container">
 		<div class="flex py-4">
-			<div><img class="h-16 w-16 cursor-pointer" src="/icon.png" alt="logo" @click="$router.push('/')"></div>
+			<div><img class="logo cursor-pointer" src="/icon.png" alt="logo" @click="$router.push('/')"></div>
 		</div>
 		<div class="max-w-md mx-auto">
 			<h1 class="font-bold text-3xl mb-6">Sign in to CMS</h1>

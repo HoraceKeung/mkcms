@@ -7,3 +7,7 @@
     font-family: rc;
     src: url(~assets/font/RobotoCondensed-Regular.ttf);
 }
+@font-face {
+	font-family: mk;
+    src: url(~assets/font/mkx-title.ttf);
+}

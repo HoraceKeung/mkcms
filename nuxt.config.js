@@ -1,3 +1,5 @@
+import whitelister from 'purgecss-whitelister'
+
 export default {
 	mode: 'spa',
 	loading: false,
@@ -9,7 +11,11 @@ export default {
 	},
 	modules: ['nuxt-purgecss', '@nuxtjs/pwa'],
 	purgeCSS: {
-		mode: 'postcss'
+		mode: 'postcss',
+		whitelist: () => whitelister([
+			'./assets/css/*.css',
+			'./node_modules/swiper/dist/css/swiper.min.css'
+		])
 	},
 	build: {
 		postcss: {

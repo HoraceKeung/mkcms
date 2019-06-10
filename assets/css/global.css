@@ -10,6 +10,7 @@
   ##  CUSTOM CLASSES
   --------------------------------------------------------- */
 @import './font.css';
+@import 'swiper/dist/css/swiper.min.css';
 
 html {
 	font-family: rc, Arial, Helvetica, sans-serif;
@@ -32,6 +33,12 @@ body {
 }
 button:focus, textarea:focus {
 	@apply outline-none
+}
+.font-mk {
+	font-family: mk;
+}
+.logo {
+	@apply rounded-lg border-2 border-gold h-12 w-12
 }
 .btn {
 	transition: all .5s;
@@ -89,4 +96,20 @@ button:focus, textarea:focus {
 .modal {
 	box-shadow: 0 0 60px rgba(253,169,15,.5);
 	@apply border border-gold bg-coal-800 flex flex-col
+}
+/* swiper */
+.swiper-button-prev, .swiper-button-next {
+	@apply outline-none
+}
+.swiper-button-prev {
+	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23fda90f'%2F%3E%3C%2Fsvg%3E");
+}
+.swiper-button-next {
+	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23fda90f'%2F%3E%3C%2Fsvg%3E");
+}
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+	@apply opacity-0
+}
+.swiper-pagination-bullet-active {
+	@apply bg-gold
 }
