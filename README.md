@@ -1,6 +1,6 @@
-# mkxicms
+# mk kompanion
 
-> MKXI CMS
+> MK Kompanion
 
 ## Build Setup
 
