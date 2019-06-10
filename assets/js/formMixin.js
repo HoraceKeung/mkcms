@@ -15,7 +15,7 @@ export default {
 			let index = this.$route.params.i
 			if (index === 'new') {
 				this.body.id = uuid()
-				clone.push(this.body)
+				clone.unshift(this.body)
 			} else {
 				clone[index] = this.body
 			}
@@ -25,7 +25,9 @@ export default {
 			})
 		},
 		del () {
-			fireDb.ref(`${this.itemType}/${this.$route.params.i}`).remove().then(() => {
+			let clone = JSON.parse(JSON.stringify(this.snapshot))
+			clone.splice(this.$route.params.i, 1)
+			fireDb.ref(this.itemType).set(clone).then(() => {
 				this.$router.push(`/cms/${this.itemType}`)
 				alert('Data deleted successfully!')
 			}).catch(error => {

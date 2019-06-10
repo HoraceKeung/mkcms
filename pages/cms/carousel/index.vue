@@ -1,7 +1,7 @@
 <template>
 	<section>
 		<div class="row">
-			<div v-for="(c,index) in snapshot" :key="index" class="col">
+			<div v-for="(c,index) in snapshot" :key="c.id" class="col">
 				<mk-card :image="c.background" @click="view(c, index)">
 					<p class="font-bold text-lg">{{c.title}}</p>
 					<p class="text-xs opacity-50">{{c.type}}</p>

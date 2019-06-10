@@ -3,7 +3,7 @@ import 'firebase/auth'
 import 'firebase/database'
 if (!firebase.apps.length) {
 	firebase.initializeApp({
-		apiKey: 'AIzaSyBkJUNBUKnXgo3yisN1LiUTfSuG6iv1AR8',
+		apiKey: 'AIzaSyDc-18n2tHHwbjumEJxlpC7F-gqwYEhPPA',
 		authDomain: 'mk-kompanion.firebaseapp.com',
 		databaseURL: 'https://mk-kompanion.firebaseio.com',
 		projectId: 'mk-kompanion'
