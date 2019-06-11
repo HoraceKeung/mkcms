@@ -1,6 +1,6 @@
 <template>
 	<section class="container">
-		<div class="flex">
+		<div class="flex py-4 md:py-0">
 			<n-link to="/" class="my-auto mr-4">
 				<div class="h-10 w-10 rounded-full flex cursor-pointer bg-gold mk-box">
 					<arrow class="m-auto" style="transform: rotate(180deg);"/>

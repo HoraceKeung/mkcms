@@ -17,10 +17,16 @@
 					<div class="m-auto lg:ml-0"><img class="w-32 rounded-lg" src="/icon.png" alt="logo"></div>
 					<p class="my-auto uppercase text-gold text-5xl lg:text-6xl font-mk whitespace-no-wrap">Explore Now</p>
 					<div class="flex lg:ml-auto">
-						<a target="_blank" href="https://www.apple.com/uk/ios/app-store/" class="my-auto ml-auto">
+						<div class="my-auto ml-auto relative" style="height: 55px;">
+							<div class="absolute h-full w-full flex rounded-lg" style="background-color: rgba(0,0,0,0.8);">
+								<p class="m-auto font-bold text-xl">KOMING SOON</p>
+							</div>
+							<img class="h-full" src="~/assets/img/apple-store-badge.svg" alt="apple-store">
+						</div>
+						<!-- <a target="_blank" href="https://www.apple.com/uk/ios/app-store/" class="my-auto ml-auto">
 							<img style="height: 55px;" src="~/assets/img/apple-store-badge.svg" alt="apple-store">
-						</a>
-						<a target="_blank" href="https://play.google.com/" class="my-auto mr-auto">
+						</a> -->
+						<a target="_blank" href="https://play.google.com/store/apps/details?id=com.alexparpas.kompanion.mk" class="my-auto mr-auto">
 							<img class="h-20" src="~/assets/img/google-play-badge.png" alt="google-play">
 						</a>
 					</div>
