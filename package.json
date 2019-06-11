@@ -19,6 +19,6 @@
 	"devDependencies": {
 		"nuxt-purgecss": "^0.2.1",
 		"purgecss-whitelister": "^2.4.0",
-		"tailwindcss": "^1.0.3"
+		"tailwindcss": "^1.0.4"
 	}
 }

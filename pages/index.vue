@@ -39,6 +39,10 @@
 					<div class="swiper-button-next"></div>
 				</div>
 			</div>
+			<div class="arrowbar-gold bottom"></div>
+			<div class="bg-black py-6"><div class="container text-center">
+				<n-link to="/terms" class="footer-link">Terms and conditions</n-link>
+			</div></div>
 		</div>
 	</section>
 </template>
@@ -120,5 +124,11 @@ export default {
 .swiper-container {
 	width: 330px;
 	height: 660px;
+}
+.footer-link {
+	@apply text-xs uppercase opacity-50 text-blue
+}
+.footer-link:hover {
+	@apply opacity-100
 }
 </style>
