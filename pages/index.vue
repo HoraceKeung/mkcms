@@ -47,6 +47,7 @@
 			</div>
 			<div class="arrowbar-gold bottom"></div>
 			<div class="bg-black py-6"><div class="container text-center">
+				<n-link to="/privacy" class="footer-link">Privacy policy</n-link>
 				<n-link to="/terms" class="footer-link">Terms and conditions</n-link>
 			</div></div>
 		</div>
@@ -132,7 +133,7 @@ export default {
 	height: 660px;
 }
 .footer-link {
-	@apply text-xs uppercase opacity-50 text-blue
+	@apply text-xs uppercase opacity-50 text-blue mx-2
 }
 .footer-link:hover {
 	@apply opacity-100
