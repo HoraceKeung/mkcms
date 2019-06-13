@@ -38,7 +38,7 @@ button:focus, textarea:focus {
 	font-family: mk;
 }
 .logo {
-	@apply rounded-lg border-2 border-gold h-12 w-12
+	@apply h-12 w-12
 }
 .btn {
 	transition: all .5s;

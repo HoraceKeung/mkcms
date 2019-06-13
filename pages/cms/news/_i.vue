@@ -17,6 +17,10 @@
 				<label for="content-input">Content</label>
 				<textarea id="content-input" rows="4" class="form-control" v-model="body.content"/>
 			</div>
+			<div class="mb-6">
+				<input type="checkbox" id="archived-checkbox" v-model="body.archived">
+				<label for="archived-checkbox">Archived</label>
+			</div>
 			<button class="btn btn-gold" type="submit" @click.prevent="save">Save</button>
 		</form>
 		<modal-action-confirm msg="Sure want to delete this item?" @confirm="del"/>
@@ -32,7 +36,8 @@ export default {
 			content: null,
 			description: null,
 			header: null,
-			title: null
+			title: null,
+			archived: false
 		}
 	})
 }

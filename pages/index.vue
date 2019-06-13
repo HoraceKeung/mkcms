@@ -14,7 +14,7 @@
 			</div>
 			<div class="bg-white">
 				<div class="container text-center flex flex-col lg:flex-row py-10">
-					<div class="m-auto lg:ml-0"><img class="w-32 rounded-lg" src="/icon.png" alt="logo"></div>
+					<div class="m-auto lg:ml-0"><img class="w-32 rounded-lg" src="~/assets/img/appIcon.png" alt="logo"></div>
 					<p class="my-auto uppercase text-gold text-5xl lg:text-6xl font-mk whitespace-no-wrap">Explore Now</p>
 					<div class="flex lg:ml-auto">
 						<div class="my-auto ml-auto relative" style="height: 55px;">
