@@ -15,7 +15,7 @@
 			</div>
 			<p class="mb-2">Video IDs</p>
 			<div class="row">
-				<div v-for="(v,index) in body.videoIds" :key="index+v" class="col">
+				<div v-for="(v,index) in body.videoIds" :key="index" class="col">
 					<div class="w-full">
 						<div class="flex mb-2">
 							<input class="form-control w-full mr-2" :value="v" @input="updateVideoId(index, $event.target.value)">
