@@ -58,7 +58,7 @@ button:focus, textarea:focus {
 	box-shadow: 0 0 60px rgba(253,169,15,.5);
 	@apply border-white
 }
-.row {
+.row, .draggable-row > div {
 	@apply flex flex-wrap -mx-2
 }
 .col {
