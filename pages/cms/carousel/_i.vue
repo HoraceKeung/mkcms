@@ -27,6 +27,14 @@
 				<label for="link-input">Link</label>
 				<input id="link-input" class="form-control" v-model="body.link">
 			</div>
+			<div class="mb-6">
+				<input type="checkbox" id="ios-checkbox" v-model="body.ios">
+				<label for="ios-checkbox">iOS</label>
+			</div>
+			<div class="mb-6">
+				<input type="checkbox" id="android-checkbox" v-model="body.android">
+				<label for="android-checkbox">Android</label>
+			</div>
 			<button class="btn btn-gold" type="submit" @click.prevent="beforeSave">Save</button>
 		</form>
 		<modal-action-confirm msg="Sure want to delete this item?" @confirm="del"/>
@@ -52,7 +60,9 @@ export default {
 			type: 'content',
 			content: null,
 			videoId: null,
-			link: null
+			link: null,
+			ios: true,
+			android: true
 		}
 	})
 }
