@@ -49,6 +49,7 @@
 			<div class="bg-black py-6"><div class="container text-center">
 				<n-link to="/privacy" class="footer-link">Privacy policy</n-link>
 				<n-link to="/terms" class="footer-link">Terms and conditions</n-link>
+				<n-link to="/licence" class="footer-link">Licence agreement</n-link>
 			</div></div>
 		</div>
 	</section>

@@ -21,7 +21,7 @@
 			</div>
 			<draggable v-model="body.videoIds" class="draggable-row" v-bind="dragOptions" @start="drag=true"  @end="drag=false">
 				<transition-group tag="div" :name="!drag ? 'flip-list' : null">
-					<div v-for="(v,index) in body.videoIds" :key="index" class="col">
+					<div v-for="(v,index) in body.videoIds" :key="'video'+index" class="col">
 						<div class="w-full">
 							<div class="flex mb-2">
 								<input class="form-control w-full mr-2" :value="v" @input="updateVideoId(index, $event.target.value)">
