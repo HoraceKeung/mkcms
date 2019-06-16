@@ -35,6 +35,10 @@
 				<input type="checkbox" id="android-checkbox" v-model="body.android">
 				<label for="android-checkbox">Android</label>
 			</div>
+			<div class="mb-6">
+				<input type="checkbox" id="updateTimestamp-checkbox" v-model="updateTimestamp">
+				<label for="updateTimestamp-checkbox">Update Timestamp</label>
+			</div>
 			<button class="btn btn-gold" type="submit" @click.prevent="beforeSave">Save</button>
 		</form>
 		<modal-action-confirm msg="Sure want to delete this item?" @confirm="del"/>

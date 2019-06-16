@@ -13,6 +13,7 @@ export default {
 		save () {
 			let clone = JSON.parse(JSON.stringify(this.snapshot))
 			let index = this.$route.params.i
+			if (this.updateTimestamp) this.body.lastUpdated = new Date().toISOString()
 			if (index === 'new') {
 				this.body.id = uuid()
 				clone.unshift(this.body)
@@ -37,6 +38,7 @@ export default {
 	},
 	data: () => ({
 		itemType: null,
-		body: null
+		body: null,
+		updateTimestamp: false
 	})
 }

@@ -32,6 +32,10 @@
 					</div>
 				</transition-group>
 			</draggable>
+			<div class="mb-6">
+				<input type="checkbox" id="updateTimestamp-checkbox" v-model="updateTimestamp">
+				<label for="updateTimestamp-checkbox">Update Timestamp</label>
+			</div>
 			<button class="btn btn-gold" type="submit" @click.prevent="save">Save</button>
 		</form>
 		<modal-action-confirm msg="Sure want to delete this item?" @confirm="del"/>
