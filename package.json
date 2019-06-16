@@ -10,7 +10,7 @@
 	},
 	"dependencies": {
 		"@nuxtjs/pwa": "^3.0.0-beta.16",
-		"firebase": "^6.1.1",
+		"firebase": "^6.2.0",
 		"nuxt": "^2.8.1",
 		"swiper": "^4.5.0",
 		"uuid": "^3.3.2",
