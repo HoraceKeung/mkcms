@@ -6,11 +6,6 @@
 					<p class="font-bold text-lg">{{c.name}}</p>
 				</mk-card>
 			</div>
-			<div class="col">
-				<div class="mk-box w-full h-full min-h-40 flex cursor-pointer" @click="add">
-					<p class="text-6xl m-auto">+</p>
-				</div>
-			</div>
 		</div>
 	</section>
 </template>
