@@ -113,3 +113,22 @@ button:focus, textarea:focus {
 .swiper-pagination-bullet-active {
 	@apply bg-gold
 }
+/* Tiptap */
+.ProseMirror {
+	@apply outline-none
+}
+.ProseMirror h1 {
+	@apply text-3xl
+}
+.ProseMirror h2 {
+	@apply text-xl
+}
+.ProseMirror h3 {
+	@apply text-lg
+}
+.ProseMirror ul {
+	@apply list-disc pl-5
+}
+.ProseMirror ol {
+	@apply list-decimal pl-5
+}

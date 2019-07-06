@@ -13,10 +13,22 @@
 				<label for="thumb-input">Thumbnail</label>
 				<input id="thumb-input" class="form-control" v-model="character.thumb">
 			</div>
-			<div class="">
+			<div class="border-t pt-4">
 				<div class="form-group">
 					<label for="bio-input">Bio</label>
 					<textarea id="bio-input" rows="4" class="form-control" v-model="characterModel.info.bio"/>
+				</div>
+				<div class="form-group">
+					<label>Overview</label>
+					<text-editor :text.sync="characterModel.info.overview"/>
+				</div>
+				<div class="form-group">
+					<label for="twitter-input">Twitter</label>
+					<input id="twitter-input" class="form-control" v-model="characterModel.twitter">
+				</div>
+				<div class="form-group">
+					<label for="tym-input">TYM</label>
+					<input id="tym-input" class="form-control" v-model="characterModel.tym">
 				</div>
 			</div>
 			<button class="btn btn-gold" type="submit" @click.prevent="save">Save</button>
@@ -26,8 +38,10 @@
 
 <script>
 import {fireDb} from '~/plugins/firebase.js'
+import TextEditor from '~/components/TextEditor'
 export default {
 	layout: 'form',
+	components: {TextEditor},
 	async created () {
 		this.character = JSON.parse(JSON.stringify(this.$store.state.itemInView))
 		this.characterModel = await fireDb.ref(`characterModel/${this.character.id}`).once('value').then(r => r.val())
