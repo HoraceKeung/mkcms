@@ -30,6 +30,27 @@
 					<label for="tym-input">TYM</label>
 					<input id="tym-input" class="form-control" v-model="characterModel.tym">
 				</div>
+				<div class="mb-3 flex">
+					<p class="my-auto mr-2">Variations</p>
+					<div class="mk-box h-10 w-10 flex cursor-pointer" @click="addVariation">
+						<p class="m-auto text-2xl">+</p>
+					</div>
+				</div>
+				<div v-for="(v,index) in characterModel.variations" :key="`variation${index}`" class="flex justify-between">
+					<div class="w-1/5 mr-2">
+						<div class="form-group">
+							<label :for="`variation${index}Id-input`">ID</label>
+							<input :id="`variation${index}Id-input`" class="form-control" v-model="characterModel.variations[index].id">
+						</div>
+					</div>
+					<div class="flex-1 mr-2">
+						<div class="form-group">
+							<label :for="`variation${index}name-input`">Name</label>
+							<input :id="`variation${index}name-input`" class="form-control" v-model="characterModel.variations[index].name">
+						</div>
+					</div>
+					<div class="mk-box w-10 h-10 mb-6 mt-auto flex cursor-pointer" @click="removeVariation(index)"><p class="m-auto text-xl">X</p></div>
+				</div>
 			</div>
 			<button class="btn btn-gold" type="submit" @click.prevent="save">Save</button>
 		</form>
@@ -45,9 +66,14 @@ export default {
 	async created () {
 		this.character = JSON.parse(JSON.stringify(this.$store.state.itemInView))
 		this.characterModel = await fireDb.ref(`characterModel/${this.character.id}`).once('value').then(r => r.val())
-		this.characterModelStringifyBeforeChange = JSON.stringify(this.characterModel)
 	},
 	methods: {
+		addVariation () {
+			this.characterModel.variations.push({id: null, name: null})
+		},
+		removeVariation (index) {
+			this.characterModel.variations.splice(index, 1)
+		},
 		saveCharacter () {
 			fireDb.ref(`characters/${this.$route.params.i}`).set(this.character, err => {
 				alert(err || 'Character saved successfully!')
@@ -59,14 +85,13 @@ export default {
 			})
 		},
 		save () {
-			if (JSON.stringify(this.character) !== JSON.stringify(this.$store.state.itemInView)) this.saveCharacter()
-			if (JSON.stringify(this.characterModel) !== this.characterModelStringifyBeforeChange) this.saveCharacterModel()
+			this.saveCharacter()
+			this.saveCharacterModel()
 		}
 	},
 	data: () => ({
 		character: null,
 		characterModel: null,
-		characterModelStringifyBeforeChange: null,
 		updateTimestamp: {
 			character: false
 		}
