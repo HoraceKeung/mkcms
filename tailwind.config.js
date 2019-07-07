@@ -19,6 +19,9 @@ module.exports = {
 			'7': '1.75rem',
 			'36': '9rem'
 		},
+		minWidth: {...defaultConfig.theme.minWidth,
+			'4': '1rem'
+		},
 		maxWidth: {...defaultConfig.theme.maxWidth,
 			'40': '10rem'
 		},

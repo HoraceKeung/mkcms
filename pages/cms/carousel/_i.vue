@@ -16,8 +16,8 @@
 				</select>
 			</div>
 			<div v-if="body.type==='content'" class="form-group">
-				<label for="content-input">Content</label>
-				<textarea id="content-input" rows="4" class="form-control" v-model="body.content"/>
+				<label>Content</label>
+				<text-editor :text.sync="body.content"/>
 			</div>
 			<div v-else-if="body.type==='youtube'" class="form-group">
 				<label for="videoId-input">Video ID</label>
@@ -46,9 +46,11 @@
 </template>
 
 <script>
+import TextEditor from '~/components/TextEditor'
 import formMixin from '~/assets/js/formMixin'
 export default {
 	mixins: [formMixin],
+	components: {TextEditor},
 	methods: {
 		beforeSave () {
 			if (this.body.type !== 'content') delete this.body.content

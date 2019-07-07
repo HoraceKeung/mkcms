@@ -16,12 +16,28 @@
 				<button type="button" @click="commands.redo"><img src="/img/tiptap/redo.svg"/></button>
 			</div>
 		</editor-menu-bar>
+		<editor-menu-bubble :editor="editor" @hide="hideLinkMenu" v-slot="{commands, isActive, getMarkAttrs, menu}">
+			<div class="menububble" :class="{'is-active': menu.isActive}" :style="`left: ${menu.left}px; bottom: ${menu.bottom}px;`">
+				<form class="flex items-center p-1 rounded bg-white" v-if="linkMenuIsActive" @submit.prevent="setLinkUrl(commands.link, linkUrl)">
+					<input class="text-black outline-none" type="text" v-model="linkUrl" placeholder="https://" ref="linkInput" @keydown.esc="hideLinkMenu"/>
+					<button class="menububble__button" @click="setLinkUrl(commands.link, null)" type="button">
+						<img class="h-4 min-w-4" src="/img/tiptap/remove.svg"/>
+					</button>
+				</form>
+				<template v-else>
+					<button class="menububble__button rounded" @click="showLinkMenu(getMarkAttrs('link'))" :class="{ 'is-active': isActive.link() }">
+						<span>{{ isActive.link() ? 'Update Link' : 'Add Link'}}</span>
+						<img class="h-4 w-4 ml-1" src="/img/tiptap/link.svg"/>
+					</button>
+				</template>
+			</div>
+		</editor-menu-bubble>
 		<editor-content class="p-2 outline-none" :editor="editor"/>
 	</div>
 </template>
 
 <script>
-import {Editor, EditorContent, EditorMenuBar} from 'tiptap'
+import {Editor, EditorContent, EditorMenuBar, EditorMenuBubble} from 'tiptap'
 import {
 	HardBreak,
 	Bold,
@@ -32,13 +48,14 @@ import {
 	BulletList,
 	OrderedList,
 	ListItem,
+	Link,
 	History
 } from 'tiptap-extensions'
 export default {
 	props: {
-		text: {type: String, required: true}
+		text: {type: String}
 	},
-	components: {EditorContent, EditorMenuBar},
+	components: {EditorContent, EditorMenuBar, EditorMenuBubble},
 	mounted () {
 		this.editor = new Editor({
 			content: this.text,
@@ -52,6 +69,7 @@ export default {
 				new BulletList(),
 				new OrderedList(),
 				new ListItem(),
+				new Link(),
 				new History()
 			],
 			onUpdate: ({getHTML}) => {
@@ -62,8 +80,28 @@ export default {
 	beforeDestroy () {
 		this.editor.destroy()
 	},
+	methods: {
+		showLinkMenu (attrs) {
+			this.linkUrl = attrs.href
+			this.linkMenuIsActive = true
+			this.$nextTick(() => {
+				this.$refs.linkInput.focus()
+			})
+		},
+		hideLinkMenu () {
+			this.linkUrl = null
+			this.linkMenuIsActive = false
+		},
+		setLinkUrl (command, url) {
+			command({href: url})
+			this.hideLinkMenu()
+			this.editor.focus()
+		}
+	},
 	data: () => ({
-		editor: null
+		editor: null,
+		linkUrl: null,
+		linkMenuIsActive: false
 	})
 }
 </script>
@@ -77,5 +115,16 @@ export default {
 }
 .menubar img {
 	@apply h-4 w-4
+}
+.menububble {
+	transform: translateX(-50%);
+	transition: opacity 0.2s, visibility 0.2s;
+	@apply absolute flex z-20 bg-coal-900 rounded p-1 mb-2 invisible opacity-0
+}
+.menububble.is-active {
+	@apply opacity-100 visible
+}
+.menububble__button {
+	@apply flex bg-white text-black text-sm p-1
 }
 </style>

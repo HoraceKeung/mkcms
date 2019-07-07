@@ -14,8 +14,8 @@
 				<input id="description-input" class="form-control" v-model="body.description">
 			</div>
 			<div class="form-group">
-				<label for="content-input">Content</label>
-				<textarea id="content-input" rows="4" class="form-control" v-model="body.content"/>
+				<label>Content</label>
+				<text-editor :text.sync="body.content"/>
 			</div>
 			<div class="mb-6">
 				<input type="checkbox" id="archived-checkbox" v-model="body.archived">
@@ -32,9 +32,11 @@
 </template>
 
 <script>
+import TextEditor from '~/components/TextEditor'
 import formMixin from '~/assets/js/formMixin'
 export default {
 	mixins: [formMixin],
+	components: {TextEditor},
 	data: () => ({
 		dataModel: {
 			content: null,

@@ -132,3 +132,6 @@ button:focus, textarea:focus {
 .ProseMirror ol {
 	@apply list-decimal pl-5
 }
+.ProseMirror a {
+	@apply underline cursor-pointer
+}
