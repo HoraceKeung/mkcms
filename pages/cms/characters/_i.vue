@@ -18,9 +18,17 @@
 					<label for="bio-input">Bio</label>
 					<textarea id="bio-input" rows="4" class="form-control" v-model="characterModel.info.bio"/>
 				</div>
+				<div class="mb-6">
+					<input type="checkbox" id="updateBioTimestamp-checkbox" v-model="updateTimestamp.bio">
+					<label for="updateBioTimestamp-checkbox">Update Bio Timestamp</label>
+				</div>
 				<div class="form-group">
 					<label>Overview</label>
 					<text-editor :text.sync="characterModel.info.overview"/>
+				</div>
+				<div class="mb-6">
+					<input type="checkbox" id="updateOverviewTimestamp-checkbox" v-model="updateTimestamp.overview">
+					<label for="updateOverviewTimestamp-checkbox">Update Overview Timestamp</label>
 				</div>
 				<div class="form-group">
 					<label for="twitter-input">Twitter</label>
@@ -51,6 +59,10 @@
 					</div>
 					<div class="mk-box w-10 h-10 mb-6 mt-auto flex cursor-pointer" @click="removeVariation(index)"><p class="m-auto text-xl">X</p></div>
 				</div>
+				<div class="mb-6">
+					<input type="checkbox" id="updateVariationsTimestamp-checkbox" v-model="updateTimestamp.variations">
+					<label for="updateVariationsTimestamp-checkbox">Update Variations Timestamp</label>
+				</div>
 			</div>
 			<button class="btn btn-gold" type="submit" @click.prevent="save">Save</button>
 		</form>
@@ -67,6 +79,11 @@ export default {
 		this.character = JSON.parse(JSON.stringify(this.$store.state.itemInView))
 		this.characterModel = await fireDb.ref(`characterModel/${this.character.id}`).once('value').then(r => r.val())
 	},
+	computed: {
+		updateCharacterTimestamp () {
+			return Object.values(this.updateTimestamp).includes(true)
+		}
+	},
 	methods: {
 		addVariation () {
 			this.characterModel.variations.push({id: null, name: null})
@@ -75,11 +92,15 @@ export default {
 			this.characterModel.variations.splice(index, 1)
 		},
 		saveCharacter () {
+			if (this.updateCharacterTimestamp) this.character.lastUpdated = new Date().toISOString()
 			fireDb.ref(`characters/${this.$route.params.i}`).set(this.character, err => {
 				alert(err || 'Character saved successfully!')
 			})
 		},
 		saveCharacterModel () {
+			if (this.updateTimestamp.bio) this.characterModel.info.bioLastUpdated = new Date().toISOString()
+			if (this.updateTimestamp.overview) this.characterModel.info.overviewLastUpdated = new Date().toISOString()
+			if (this.updateTimestamp.variations) this.characterModel.variationsLastUpdated = new Date().toISOString()
 			fireDb.ref(`characterModel/${this.character.id}`).set(this.characterModel, err => {
 				alert(err || 'Character model saved successfully!')
 			})
@@ -93,7 +114,9 @@ export default {
 		character: null,
 		characterModel: null,
 		updateTimestamp: {
-			character: false
+			bio: false,
+			overview: false,
+			variations: false
 		}
 	})
 }
