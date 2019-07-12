@@ -17,7 +17,9 @@ export default {
 			'characters',
 			'carousel',
 			'media',
-			'news'
+			'news',
+			'tips',
+			'tweets'
 		]
 	})
 }
