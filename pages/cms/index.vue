@@ -16,7 +16,6 @@ export default {
 		pages: [
 			'characters',
 			'carousel',
-			'dynamic',
 			'media',
 			'news'
 		]
