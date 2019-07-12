@@ -15,8 +15,10 @@ export default {
 			let index = this.$route.params.i
 			if (this.updateTimestamp) this.body.lastUpdated = new Date().toISOString()
 			if (index === 'new') {
-				this.body.id = uuid()
-				clone.unshift(this.body)
+				if (this.body) {
+					if (typeof this.body !== 'string') this.body.id = uuid()
+					clone.unshift(this.body)
+				}
 			} else {
 				clone[index] = this.body
 			}
