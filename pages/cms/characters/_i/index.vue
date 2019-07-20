@@ -1,5 +1,10 @@
 <template>
 	<section>
+		<div class="mb-6 flex">
+			<n-link :to="`${$route.path}/media`">
+				<mk-button text="media" icon="arrow"/>
+			</n-link>
+		</div>
 		<form v-if="character&&characterModel">
 			<div class="form-group">
 				<label for="name-input">Name</label>
