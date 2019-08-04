@@ -17,10 +17,12 @@ module.exports = {
 		},
 		spacing: {...defaultConfig.theme.spacing,
 			'7': '1.75rem',
+			'14': '3.5rem',
 			'36': '9rem'
 		},
 		minWidth: {...defaultConfig.theme.minWidth,
-			'4': '1rem'
+			'4': '1rem',
+			'14': '3.5rem'
 		},
 		maxWidth: {...defaultConfig.theme.maxWidth,
 			'40': '10rem'

@@ -11,7 +11,7 @@
 			</div>
 			<div class="form-group">
 				<label for="type-input">Type</label>
-				<select id="name-input" class="form-control" v-model="body.type">
+				<select id="type-input" class="form-control" v-model="body.type">
 					<option v-for="t in ['content', 'youtube', 'web']" :key="t" :value="t">{{t}}</option>
 				</select>
 			</div>

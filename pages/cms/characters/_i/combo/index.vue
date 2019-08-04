@@ -1,10 +1,10 @@
 <template>
 	<section>
 		<div class="row">
-			<div v-for="(m,index) in charSnapshot" :key="m.id" class="col">
-				<mk-card @click="view(m, index)">
-					<p class="font-bold text-lg">{{m.title}}</p>
-					<p class="text-xs opacity-50">{{m.description}}</p>
+			<div v-for="(c,index) in charSnapshot" :key="c.title" class="col">
+				<mk-card @click="view(c, index)">
+					<p class="font-bold text-lg">{{c.title}}</p>
+					<p class="text-xs opacity-50">{{c.description}}</p>
 				</mk-card>
 			</div>
 			<div class="col">
@@ -24,7 +24,7 @@ export default {
 		this.$store.commit('setCharSnapshot', null)
 		this.$store.commit('setCharItemInView', null)
 		this.character = JSON.parse(JSON.stringify(this.$store.state.itemInView))
-		fireDb.ref(`characterModel/${this.character.id}/media`).once('value').then(snapshot => {
+		fireDb.ref(`combos/${this.character.id}`).once('value').then(snapshot => {
 			this.$store.commit('setCharSnapshot', snapshot.val())
 		})
 	},

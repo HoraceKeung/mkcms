@@ -1,8 +1,8 @@
 <template>
 	<section>
 		<div class="mb-6 flex">
-			<n-link :to="`${$route.path}/media`">
-				<mk-button text="media" icon="arrow"/>
+			<n-link v-for="x in ['media','combo']" :key="x" :to="`${$route.path}/${x}`" class="mr-2">
+				<mk-button :text="x" icon="arrow"/>
 			</n-link>
 		</div>
 		<form v-if="character&&characterModel">
