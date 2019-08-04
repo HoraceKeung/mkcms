@@ -27,6 +27,7 @@
 			<div class="form-group">
 				<label for="variationId-input">Variation ID</label>
 				<select id="variationId-input" class="form-control" v-model="body.variationId">
+					<option :value="null">Universal</option>
 					<option v-for="v in charVariations" :key="v.id" :value="v.id">{{v.id}} ({{v.name}})</option>
 				</select>
 			</div>
