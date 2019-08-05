@@ -14,8 +14,19 @@
 				<input id="damage-input" class="form-control" v-model="body.damage">
 			</div>
 			<div class="form-group">
-				<label for="input-input">Input</label>
-				<input id="input-input" class="form-control mb-2" v-model="body.input">
+				<div class="flex">
+					<label for="input-input">Input</label>
+					<div class="ml-4">
+						<input type="checkbox" id="viewRawComboInput-checkbox" v-model="viewRawComboInput">
+						<label for="viewRawComboInput-checkbox">View raw</label>
+					</div>
+				</div>
+				<input v-show="viewRawComboInput" id="input-input" class="form-control mb-2" v-model="body.input">
+				<div v-show="!viewRawComboInput" class="flex flex-wrap -mx-1 form-control mb-2">
+					<div v-for="(c,index) in comboInputArr" :key="index" class="px-1 mb-1">
+						<div v-if="c" class="m-auto"><img class="h-10" :src="`/img/combo/${c}.png`"></div>
+					</div>
+				</div>
 				<div class="flex flex-wrap -mx-1">
 					<div v-for="b in comboBtns" :key="b" class="px-1 mb-2">
 						<div class="p-1 border-2 border-coal-900 h-14 min-w-14 flex cursor-pointer" @click="addInputFromComboBtn(b)">
@@ -59,7 +70,16 @@ export default {
 	computed: {
 		charId () { return this.$store.state.itemInView.id },
 		charSnapshot () { return this.$store.state.charSnapshot },
-		charComboPath () { return `combos/${this.charId}` }
+		charComboPath () { return `combos/${this.charId}` },
+		comboInputArr () {
+			return this.body.input.split('|').map(x => {
+				switch (x) {
+				case '+': return 'plus'
+				case ',': return 'comma'
+				default: return x
+				}
+			})
+		}
 	},
 	methods: {
 		addInputFromComboBtn (btn) {
@@ -131,6 +151,7 @@ export default {
 		updateTimestamp: false,
 		charVariations: [],
 		tag: '',
+		viewRawComboInput: true,
 		comboBtns: [
 			'b',
 			'u',
