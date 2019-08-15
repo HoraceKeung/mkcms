@@ -3,7 +3,7 @@ import uuid from 'uuid/v4'
 export default {
 	layout: 'form',
 	created () {
-		this.itemType = this.$route.path.split('/').slice(-2)[0]
+		this.itemType = this.$route.path.split('/').slice(2, -1).join('/')
 		this.body = JSON.parse(JSON.stringify(this.$store.state.itemInView || this.dataModel))
 	},
 	computed: {

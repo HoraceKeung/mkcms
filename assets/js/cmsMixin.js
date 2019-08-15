@@ -3,7 +3,7 @@ export default {
 	created () {
 		this.$store.commit('setSnapshot', null)
 		this.$store.commit('setItemInView', null)
-		this.itemType = this.$route.path.split('/').pop()
+		this.itemType = this.$route.path.split('/').slice(2).join('/')
 		fireDb.ref(this.itemType).once('value').then(snapshot => {
 			this.$store.commit('setSnapshot', snapshot.val())
 		})
