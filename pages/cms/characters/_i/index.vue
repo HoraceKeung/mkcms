@@ -43,6 +43,10 @@
 					<label for="tym-input">TYM</label>
 					<input id="tym-input" class="form-control" v-model="characterModel.tym">
 				</div>
+				<div class="form-group">
+					<label for="akademy-input">Akademy</label>
+					<input id="akademy-input" class="form-control" v-model="characterModel.akademy">
+				</div>
 				<div class="mb-3 flex">
 					<p class="my-auto mr-2">Variations</p>
 					<div class="mk-box h-10 w-10 flex cursor-pointer" @click="addVariation">
