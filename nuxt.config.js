@@ -14,7 +14,8 @@ export default {
 		mode: 'postcss',
 		whitelist: () => whitelister([
 			'./assets/css/*.css',
-			'./node_modules/swiper/dist/css/swiper.min.css'
+			'./node_modules/swiper/dist/css/swiper.min.css',
+			'./node_modules/flatpickr/dist/flatpickr.css'
 		])
 	},
 	build: {

@@ -11,6 +11,7 @@
   --------------------------------------------------------- */
 @import './font.css';
 @import 'swiper/dist/css/swiper.min.css';
+@import 'flatpickr/dist/flatpickr.css';
 
 html {
 	font-family: rc, Arial, Helvetica, sans-serif;
@@ -155,4 +156,9 @@ button:disabled {
 }
 .ProseMirror a {
 	@apply underline cursor-pointer
+}
+/* vue-flatpickr-component */
+.flatpickr-day.selected, .flatpickr-day.selected:hover {
+	background-color: theme('colors.gold') !important;
+    border-color: theme('colors.gold') !important;
 }

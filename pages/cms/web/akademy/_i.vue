@@ -17,6 +17,10 @@
 				<label for="link-input">Link</label>
 				<input id="link-input" class="form-control" v-model="body.link">
 			</div>
+			<div class="form-group">
+				<label>Publish date</label>
+				<flat-pickr class="form-control" v-model="body.publishDate" :config="flatpickrConfig" placeholder="Select date"/>
+			</div>
 			<div class="mb-6">
 				<input type="checkbox" id="updateTimestamp-checkbox" v-model="updateTimestamp">
 				<label for="updateTimestamp-checkbox">Update Timestamp</label>
@@ -32,11 +36,18 @@ import formMixin from '~/assets/js/formMixin'
 export default {
 	mixins: [formMixin],
 	data: () => ({
+		flatpickrConfig: {
+			dateFormat: 'Z',
+			enableTime: true,
+			altFormat: 'M j, Y - H:i',
+			altInput: true
+		},
 		dataModel: {
 			description: null,
 			header: null,
 			title: null,
-			link: null
+			link: null,
+			publishDate: null
 		}
 	})
 }
