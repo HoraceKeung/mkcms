@@ -72,13 +72,13 @@ export default {
 		charSnapshot () { return this.$store.state.charSnapshot },
 		charComboPath () { return `combos/${this.charId}` },
 		comboInputArr () {
-			return this.body.input.split('|').map(x => {
+			return this.body.input ? this.body.input.split('|').map(x => {
 				switch (x) {
 				case '+': return 'plus'
 				case ',': return 'comma'
 				default: return x
 				}
-			})
+			}) : []
 		}
 	},
 	methods: {
