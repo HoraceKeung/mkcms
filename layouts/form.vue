@@ -16,7 +16,8 @@ export default {
 	components: {Arrow},
 	computed: {
 		canDel () {
-			return this.$store.state.itemInView && (!this.$route.path.includes('characters') || this.$route.path.split('/').length >= 6) && !this.$route.path.includes('new')
+			const p = this.$route.path
+			return this.$store.state.itemInView && (!p.includes('characters') || p.split('/').length >= 6) && p.substr(p.length - 4) !== '/new'
 		}
 	}
 }
