@@ -1,10 +1,13 @@
 <template>
-	<flat-pickr
-		class="form-control"
-		v-model="date"
-		:config="flatpickrConfig"
-		placeholder="Select date"
-	/>
+	<div class="flex flex-col">
+		<flat-pickr
+			class="form-control"
+			v-model="date"
+			:config="flatpickrConfig"
+			placeholder="Select date"
+		/>
+		<button v-show="date" type="button" class="ml-auto text-gold" @click="date=null">Remove date</button>
+	</div>
 </template>
 
 <script>
