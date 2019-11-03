@@ -9,23 +9,16 @@ export default {
 		theme_color: '#fda913',
 		orientation: 'portrait'
 	},
-	modules: ['nuxt-purgecss', '@nuxtjs/pwa'],
+	buildModules: ['@nuxtjs/tailwindcss'],
+	modules: ['@nuxtjs/pwa'],
 	purgeCSS: {
-		mode: 'postcss',
 		whitelist: () => whitelister([
 			'./assets/css/*.css',
-			'./node_modules/swiper/dist/css/swiper.min.css',
+			'./node_modules/swiper/css/swiper.min.css',
 			'./node_modules/flatpickr/dist/flatpickr.css'
 		])
 	},
-	build: {
-		postcss: {
-			plugins: {
-				tailwindcss: './tailwind.config.js'
-			}
-		}
-	},
-	css: ['~/assets/css/global.css'],
+	css: [],
 	plugins: ['~/plugins/firebase.js', '~/plugins/main.js'],
 	router: {
 		middleware: 'routeGuard'

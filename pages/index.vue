@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import Swiper from 'swiper/dist/js/swiper.min.js'
+import Swiper from 'swiper'
 export default {
 	layout: 'landing',
 	mounted () {
