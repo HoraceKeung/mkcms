@@ -17,6 +17,10 @@
 				<label>Content</label>
 				<text-editor :text.sync="body.content"/>
 			</div>
+			<div class="form-group">
+				<label>Publish date</label>
+				<date-picker v-model="body.publishDate"/>
+			</div>
 			<div class="mb-6">
 				<input type="checkbox" id="archived-checkbox" v-model="body.archived">
 				<label for="archived-checkbox">Archived</label>
@@ -43,6 +47,7 @@ export default {
 			description: null,
 			header: null,
 			title: null,
+			publishDate: null,
 			archived: false
 		}
 	})

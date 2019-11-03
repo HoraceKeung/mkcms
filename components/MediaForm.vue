@@ -12,6 +12,10 @@
 			<label for="order-input">Order</label>
 			<input id="order-input" type="number" class="form-control" v-model.number="body.order">
 		</div>
+		<div class="form-group">
+			<label>Publish date</label>
+			<date-picker v-model="body.publishDate"/>
+		</div>
 		<div class="mb-3 flex">
 			<p class="my-auto mr-2">Video IDs</p>
 			<div class="mk-box h-10 w-10 flex cursor-pointer" @click="addVideo">

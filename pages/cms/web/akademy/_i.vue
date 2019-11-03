@@ -19,7 +19,7 @@
 			</div>
 			<div class="form-group">
 				<label>Publish date</label>
-				<flat-pickr class="form-control" v-model="body.publishDate" :config="flatpickrConfig" placeholder="Select date"/>
+				<date-picker v-model="body.publishDate"/>
 			</div>
 			<div class="mb-6">
 				<input type="checkbox" id="updateTimestamp-checkbox" v-model="updateTimestamp">
@@ -36,12 +36,6 @@ import formMixin from '~/assets/js/formMixin'
 export default {
 	mixins: [formMixin],
 	data: () => ({
-		flatpickrConfig: {
-			dateFormat: 'Z',
-			enableTime: true,
-			altFormat: 'M j, Y - H:i',
-			altInput: true
-		},
 		dataModel: {
 			description: null,
 			header: null,

@@ -7,6 +7,7 @@ export default {
 			title: null,
 			description: null,
 			order: null,
+			publishDate: null,
 			videoIds: []
 		}
 	})
