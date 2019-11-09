@@ -11,7 +11,7 @@ export default {
 	},
 	methods: {
 		save () {
-			let clone = JSON.parse(JSON.stringify(this.snapshot))
+			let clone = JSON.parse(JSON.stringify(this.snapshot.filter(x => x)))
 			let index = this.$route.params.i
 			if (this.updateTimestamp) this.body.lastUpdated = new Date().toISOString()
 			if (index === 'new') {
