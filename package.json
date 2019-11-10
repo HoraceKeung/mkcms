@@ -12,7 +12,7 @@
 		"@johmun/vue-tags-input": "^2.1.0",
 		"@nuxtjs/pwa": "^3.0.0-beta.19",
 		"core-js": "^2.6.10",
-		"firebase": "^7.2.3",
+		"firebase": "^7.3.0",
 		"nuxt": "^2.10.2",
 		"swiper": "^5.2.0",
 		"tiptap": "^1.26.4",
@@ -23,7 +23,7 @@
 		"vuedraggable": "^2.23.2"
 	},
 	"devDependencies": {
-		"@nuxtjs/tailwindcss": "^1.1.2",
+		"@nuxtjs/tailwindcss": "^1.2.0",
 		"purgecss-whitelister": "^2.4.0"
 	}
 }

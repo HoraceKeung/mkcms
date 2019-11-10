@@ -23,7 +23,7 @@
 			</div>
 		</div>
 		<draggable v-model="body.videoIds" class="draggable-row" v-bind="dragOptions" @start="drag=true"  @end="drag=false">
-			<transition-group tag="div" :name="!drag ? 'flip-list' : null">
+			<transition-group tag="div">
 				<div v-for="(v,index) in body.videoIds" :key="'video'+index" class="col">
 					<div class="w-full">
 						<div class="flex mb-2">
