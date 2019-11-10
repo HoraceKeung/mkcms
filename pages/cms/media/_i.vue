@@ -7,7 +7,6 @@
 
 <script>
 import Vue from 'vue'
-import draggable from 'vuedraggable'
 import formMixin from '~/assets/js/formMixin'
 import mediaMixin from '~/assets/js/mediaMixin'
 export default {

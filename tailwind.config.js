@@ -34,6 +34,9 @@ module.exports = {
 			...theme('colors'),
 			default: theme('colors.coal')
 		}),
+		cursor: {...defaultConfig.theme.cursor,
+			'grab': 'grab'
+		},
 		container: {
 			center: true,
 			padding: '1rem'

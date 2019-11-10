@@ -18,19 +18,31 @@
 		</div>
 		<div class="mb-3 flex">
 			<p class="my-auto mr-2">Video IDs</p>
-			<div class="mk-box h-10 w-10 flex cursor-pointer" @click="addVideo">
+			<div class="mk-box h-10 w-10 flex cursor-pointer mr-2" @click="addVideo">
 				<p class="m-auto text-2xl">+</p>
 			</div>
+			<div class="my-auto flex">
+				<toggle v-model="isReordering"/>
+				<label class="ml-1 my-auto">Reorder</label>
+			</div>
 		</div>
-		<draggable v-model="body.videoIds" class="draggable-row" v-bind="dragOptions" @start="drag=true"  @end="drag=false">
+		<div v-show="!isReordering" class="row">
+			<div v-for="(v,index) in body.videoIds" :key="'video'+index" class="col">
+				<div class="w-full">
+					<div class="flex mb-2">
+						<input class="form-control w-full mr-2" :value="v" @input="updateVideoId(index, $event.target.value)">
+						<div class="mk-box w-12 flex cursor-pointer" @click="removeVideo(index)"><p class="m-auto text-xl">X</p></div>
+					</div>
+					<a :href="`https://www.youtube.com/watch?v=${v}`" target="_blank"><img class="w-full" :src="`https://img.youtube.com/vi/${v}/hqdefault.jpg`" alt="thumbnail"></a>
+				</div>
+			</div>
+		</div>
+		<draggable v-show="isReordering" v-model="body.videoIds" class="draggable-row" v-bind="dragOptions" @start="drag=true"  @end="drag=false">
 			<transition-group tag="div">
-				<div v-for="(v,index) in body.videoIds" :key="'video'+index" class="col">
+				<div v-for="(v,index) in body.videoIds" :key="'video'+index" class="col cursor-grab">
 					<div class="w-full">
-						<div class="flex mb-2">
-							<input class="form-control w-full mr-2" :value="v" @input="updateVideoId(index, $event.target.value)">
-							<div class="mk-box w-12 flex cursor-pointer" @click="removeVideo(index)"><p class="m-auto text-xl">X</p></div>
-						</div>
-						<a :href="`https://www.youtube.com/watch?v=${v}`" target="_blank"><img class="w-full" :src="`https://img.youtube.com/vi/${v}/hqdefault.jpg`" alt="thumbnail"></a>
+						<input class="form-control w-full mb-2" :value="v" readonly disabled>
+						<img class="w-full" :src="`https://img.youtube.com/vi/${v}/hqdefault.jpg`" alt="thumbnail">
 					</div>
 				</div>
 			</transition-group>
@@ -70,7 +82,8 @@ export default {
 		dragOptions: {
 			animation: 200,
 			group: "videoIds"
-		}
+		},
+		isReordering: false
 	})
 }
 </script>
