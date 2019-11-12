@@ -9,7 +9,10 @@ export default {
 		})
 	},
 	computed: {
-		snapshot () { return this.$store.state.snapshot }
+		snapshot: {
+			get () { return this.$store.state.snapshot },
+			set (val) { this.$store.commit('setSnapshot', val) }
+		}
 	},
 	methods: {
 		view (item, index) {

@@ -3,7 +3,7 @@
 		<div class="row">
 			<div v-for="(c,index) in charSnapshot" :key="c.title" class="col">
 				<mk-card @click="view(c, index)">
-					<p class="font-bold text-lg">{{c.title}}</p>
+					<p class="font-bold text-lg leading-tight mb-2">{{c.title}}</p>
 					<p class="text-xs opacity-50">{{c.description}}</p>
 				</mk-card>
 			</div>

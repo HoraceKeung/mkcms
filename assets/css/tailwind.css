@@ -41,9 +41,15 @@ button:disabled {
 .logo {
 	@apply h-12 w-12
 }
-.btn {
+.btn, .btn-sm {
 	transition: all .5s;
-	@apply py-2 px-4 uppercase font-bold
+	@apply uppercase font-bold
+}
+.btn {
+	@apply py-2 px-4
+}
+.btn-sm {
+	@apply py-px px-2 text-sm
 }
 .btn-gold {
 	@apply bg-gold
@@ -55,7 +61,7 @@ button:disabled {
 	transition: all .5s;
 	@apply border border-gold
 }
-.mk-box:hover, .btn:hover {
+.mk-box:hover, .btn:hover, .btn-sm:hover {
 	box-shadow: 0 0 60px rgba(253,169,15,.5);
 	@apply border-white
 }

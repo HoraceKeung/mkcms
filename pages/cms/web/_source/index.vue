@@ -3,7 +3,7 @@
 		<div class="row">
 			<div v-for="(a,index) in webpages" :key="a.id" class="col">
 				<mk-card :image="a.header" @click="view(a, index)">
-					<p class="font-bold text-lg">{{a.title}}</p>
+					<p class="font-bold text-lg leading-tight mb-2">{{a.title}}</p>
 					<p class="text-xs opacity-50">{{a.description}}</p>
 				</mk-card>
 			</div>

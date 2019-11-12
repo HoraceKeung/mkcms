@@ -95,7 +95,11 @@ export default {
 	},
 	methods: {
 		addVariation () {
-			this.characterModel.variations.push({id: null, name: null})
+			if (this.characterModel.variations) {
+				this.characterModel.variations.push({id: null, name: null})
+			} else {
+				this.characterModel.variations = [{id: null, name: null}]
+			}
 		},
 		removeVariation (index) {
 			this.characterModel.variations.splice(index, 1)
