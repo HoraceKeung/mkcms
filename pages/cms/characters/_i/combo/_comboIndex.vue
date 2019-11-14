@@ -44,7 +44,7 @@
 			</div>
 			<div class="form-group">
 				<label for="tags-input">Tags</label>
-				<vue-tags-input id="tags-input" class="form-control" v-model="tag" :tags="body.tags.map(text=>({text}))" @tags-changed="newTags => body.tags = newTags.map(t=>t.text)"/>
+				<vue-tags-input id="tags-input" class="form-control" v-model="tag" :tags="tags" @tags-changed="newTags => body.tags = newTags.map(t=>t.text)"/>
 			</div>
 			<div class="mb-6">
 				<input type="checkbox" id="updateTimestamp-checkbox" v-model="updateTimestamp">
@@ -79,7 +79,8 @@ export default {
 				default: return x
 				}
 			}) : []
-		}
+		},
+		tags () { return this.body.tags ? this.body.tags.map(text=>({text})) : [] }
 	},
 	methods: {
 		addInputFromComboBtn (btn) {
