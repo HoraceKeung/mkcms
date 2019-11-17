@@ -99,24 +99,6 @@ button:disabled {
 .form-control:focus {
 	@apply border-gold-600 outline-none
 }
-/* vue tags input */
-.vue-tags-input {
-	max-width: 100% !important;
-	background-color: theme('colors.coal-900') !important;
-}
-.ti-input {
-	border: 0px !important;
-	padding: 0 !important;
-}
-.ti-new-tag-input {
-	@apply bg-coal-900
-}
-.vue-tags-input .ti-tag {
-	background-color: theme('colors.coal') !important;
-}
-.vue-tags-input .ti-deletion-mark {
-	background-color: red !important;
-}
 /* Modal */
 .modal {
 	box-shadow: 0 0 60px rgba(253,169,15,.5);

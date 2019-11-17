@@ -10,6 +10,10 @@
 				<input id="description-input" class="form-control" v-model="body.description">
 			</div>
 			<div class="form-group">
+				<label for="mediaUrl-input">Media URL</label>
+				<input id="mediaUrl-input" class="form-control" v-model="body.mediaUrl">
+			</div>
+			<div class="form-group">
 				<label for="damage-input">Damage</label>
 				<input id="damage-input" class="form-control" v-model="body.damage">
 			</div>
@@ -43,8 +47,15 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<label for="tags-input">Tags</label>
-				<vue-tags-input id="tags-input" class="form-control" v-model="tag" :tags="body.tags.map(text=>({text}))" @tags-changed="newTags => body.tags = newTags.map(t=>t.text)"/>
+				<label for="category-input">Category</label>
+				<select id="category-input" class="form-control" v-model="body.category">
+					<option :value="null"></option>
+					<option v-for="c in availableCategories" :key="c" :value="c">{{c}}</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Tags</label>
+				<tag-select :options="availableTags" v-model="body.tags"/>
 			</div>
 			<div class="mb-6">
 				<input type="checkbox" id="updateTimestamp-checkbox" v-model="updateTimestamp">
@@ -59,10 +70,10 @@
 <script>
 import {fireDb} from '~/plugins/firebase.js'
 import uuid from 'uuid/v4'
-import VueTagsInput from '@johmun/vue-tags-input'
+import TagSelect from '~/components/TagSelect'
 export default {
 	layout: 'form',
-	components: {VueTagsInput},
+	components: {TagSelect},
 	async created () {
 		this.body = JSON.parse(JSON.stringify(this.$store.state.charItemInView || this.dataModel))
 		this.charVariations = await fireDb.ref(`characterModel/${this.charId}/variations`).once('value').then(r => r.val())
@@ -145,12 +156,13 @@ export default {
 			damage: null,
 			input: null,
 			variationId: null,
-			tags: []
+			category: null,
+			tags: [],
+			mediaUrl: null
 		},
 		body: null,
 		updateTimestamp: false,
 		charVariations: [],
-		tag: '',
 		viewRawComboInput: true,
 		comboBtns: [
 			'b',
@@ -177,6 +189,27 @@ export default {
 			'plus',
 			'comma',
 			'xx'
+		],
+		availableCategories: [
+			'Midscreen',
+			'Corner'
+		],
+		availableTags: [
+			'Krushing Blow',
+			'Fatal Blow',
+			'D2',
+			'Anti Air',
+			'U2',
+			'JIK',
+			'JIP',
+			'Side Switch',
+			'Buff',
+			'Max',
+			'Setup',
+			'Restand',
+			'Meterless',
+			'1 Bar',
+			'2 Bars'
 		]
 	})
 }
