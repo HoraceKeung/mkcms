@@ -195,6 +195,8 @@ export default {
 			'Corner'
 		],
 		availableTags: [
+			'Beginner',
+			'Advanced',
 			'Krushing Blow',
 			'Fatal Blow',
 			'D2',
