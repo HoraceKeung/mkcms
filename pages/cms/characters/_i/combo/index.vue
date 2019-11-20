@@ -4,7 +4,8 @@
 			<div v-for="(c,index) in charSnapshot" :key="c.title" class="col">
 				<mk-card @click="view(c, index)">
 					<p class="font-bold text-lg leading-tight mb-2">{{c.title}}</p>
-					<p class="text-xs opacity-50">{{c.description}}</p>
+					<p class="text-xs opacity-50 mb-2">{{c.description}}</p>
+					<p class="text-xs text-gold">{{c.input.replace(/\|/g, '')}}</p>
 				</mk-card>
 			</div>
 			<div class="col">
