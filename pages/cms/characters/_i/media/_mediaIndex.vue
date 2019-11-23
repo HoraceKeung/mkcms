@@ -16,7 +16,7 @@ export default {
 		this.body = JSON.parse(JSON.stringify(this.$store.state.charItemInView || this.dataModel))
 	},
 	computed: {
-		charSnapshot () { return this.$store.state.charSnapshot },
+		charSnapshot () { return this.$store.state.charSnapshot || [] },
 		charMediaPath () { return `characterModel/${this.$store.state.itemInView.id}/media` }
 	},
 	methods: {

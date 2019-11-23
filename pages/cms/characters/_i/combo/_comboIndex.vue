@@ -80,7 +80,7 @@ export default {
 	},
 	computed: {
 		charId () { return this.$store.state.itemInView.id },
-		charSnapshot () { return this.$store.state.charSnapshot },
+		charSnapshot () { return this.$store.state.charSnapshot || [] },
 		charComboPath () { return `combos/${this.charId}` },
 		comboInputArr () {
 			return this.body.input ? this.body.input.split('|').map(x => {
@@ -117,11 +117,7 @@ export default {
 			if (index === 'new') {
 				this.body.id = uuid()
 				this.body.characterId = this.charId
-				if (clone) {
-					clone.unshift(this.body)
-				} else {
-					clone = [this.body]
-				}
+				clone.unshift(this.body)
 			} else {
 				clone[index] = this.body
 			}
