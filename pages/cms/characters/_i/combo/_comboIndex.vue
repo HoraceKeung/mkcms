@@ -1,5 +1,9 @@
 <template>
 	<section>
+		<div class="flex mb-6">
+			<button v-if="$route.params.comboIndex>0" type="button" class="btn-sm btn-white mr-4" @click="navCombo(-1)">Prev combo</button>
+			<button v-if="$route.params.comboIndex<charSnapshot.length-1" type="button" class="btn-sm btn-white" @click="navCombo(1)">Next combo</button>
+		</div>
 		<form v-if="body">
 			<div class="form-group">
 				<label for="title-input">Title</label>
@@ -93,6 +97,13 @@ export default {
 		}
 	},
 	methods: {
+		navCombo (num) {
+			const targetIndex = parseInt(this.$route.params.comboIndex) + num
+			this.$store.commit('setCharItemInView', this.charSnapshot[targetIndex])
+			let segments = this.$route.path.split('/')
+			segments.pop()
+			this.$router.push(`${segments.join('/')}/${targetIndex}`)
+		},
 		addInputFromComboBtn (btn) {
 			const key = (() => {
 				switch (btn) {
