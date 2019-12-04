@@ -1,18 +1,18 @@
 <template>
 	<section>
-		<div class="row">
-			<div v-for="(c,index) in charSnapshot" :key="c.title" class="col">
-				<mk-card @click="view(c, index)">
-					<p class="font-bold text-lg leading-tight mb-2">{{c.title}}</p>
-					<p class="text-xs opacity-50 mb-2">{{c.description}}</p>
-					<p class="text-xs text-gold">{{c.input.replace(/\|/g, '')}}</p>
-				</mk-card>
-			</div>
-			<div class="col">
-				<div class="mk-box w-full h-full min-h-40 flex cursor-pointer" @click="add">
-					<p class="text-6xl m-auto">+</p>
-				</div>
-			</div>
+		<div class="form-group">
+			<label for="search-input">Search</label>
+			<input id="search-input" class="form-control" v-model.trim="searchWord">
+		</div>
+		<div v-for="(c,index) in charSnapshot" :key="c.title" v-show="c.isShow" class="mb-4">
+			<mk-card @click="view(c, index)">
+				<p class="font-bold text-lg leading-tight mb-2">{{c.title}}</p>
+				<p class="text-xs opacity-50 mb-2">{{c.description}}</p>
+				<p class="text-xs text-gold">{{c.input.replace(/\|/g, '')}}</p>
+			</mk-card>
+		</div>
+		<div class="mk-box w-full h-full min-h-40 flex cursor-pointer mb-4" @click="add">
+			<p class="text-6xl m-auto">+</p>
 		</div>
 	</section>
 </template>
@@ -30,7 +30,13 @@ export default {
 		})
 	},
 	computed: {
-		charSnapshot () { return this.$store.state.charSnapshot }
+		charSnapshot () {
+			return this.$store.state.charSnapshot ? this.$store.state.charSnapshot.map(x => {
+				return {...x,
+					isShow: !this.searchWord || Object.values(x).flat().some(v => v.toLowerCase().includes(this.searchWord.toLowerCase()))
+				}
+			}): []
+		}
 	},
 	methods: {
 		view (item, index) {
@@ -43,7 +49,8 @@ export default {
 		}
 	},
 	data: () => ({
-		character: null
+		character: null,
+		searchWord: null
 	})
 }
 </script>

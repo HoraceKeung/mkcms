@@ -4,6 +4,7 @@
 			<button v-if="$route.params.comboIndex>0" type="button" class="btn-sm btn-white mr-4" @click="navCombo(-1)">Prev combo</button>
 			<button v-if="$route.params.comboIndex<charSnapshot.length-1" type="button" class="btn-sm btn-white" @click="navCombo(1)">Next combo</button>
 		</div>
+		<p class="mb-4">ID: {{body.id}}</p>
 		<form v-if="body">
 			<div class="form-group">
 				<label for="title-input">Title</label>
