@@ -1,5 +1,9 @@
 <template>
 	<section>
+		<div class="form-group">
+			<label for="search-input">Search</label>
+			<input id="search-input" class="form-control" v-model.trim="searchWord">
+		</div>
 		<div class="row">
 			<div v-for="(c,index) in charSnapshot" :key="c.title" class="col">
 				<mk-card @click="view(c, index)">
@@ -30,7 +34,13 @@ export default {
 		})
 	},
 	computed: {
-		charSnapshot () { return this.$store.state.charSnapshot }
+		charSnapshot () {
+			return this.$store.state.charSnapshot ? this.$store.state.charSnapshot.map(x => {
+				return {...x,
+					isShow: !this.searchWord || Object.values(x).flat().some(v => v.toLowerCase().includes(this.searchWord.toLowerCase()))
+				}
+			}): []
+		}
 	},
 	methods: {
 		view (item, index) {
@@ -43,7 +53,8 @@ export default {
 		}
 	},
 	data: () => ({
-		character: null
+		character: null,
+		searchWord: null
 	})
 }
 </script>
