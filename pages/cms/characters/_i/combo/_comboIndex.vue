@@ -62,6 +62,10 @@
 				<label>Tags</label>
 				<tag-select :options="availableTags" v-model="body.tags"/>
 			</div>
+			<div class="form-group">
+				<label>Publish date</label>
+				<date-picker v-model="body.publishDate"/>
+			</div>
 			<div class="mb-6">
 				<input type="checkbox" id="updateTimestamp-checkbox" v-model="updateTimestamp">
 				<label for="updateTimestamp-checkbox">Update Timestamp</label>
@@ -166,7 +170,8 @@ export default {
 			variationId: null,
 			category: null,
 			tags: [],
-			gif: null
+			gif: null,
+			publishDate: null
 		},
 		body: null,
 		updateTimestamp: false,
