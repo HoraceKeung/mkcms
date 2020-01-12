@@ -3,7 +3,7 @@
 		<div class="row">
 			<div v-for="(t,index) in snapshot" :key="index" class="col">
 				<mk-card @click="view(t, index)">
-					<p class="text-xs opacity-50 overflow-hidden">{{t}}</p>
+					<p class="text-xs opacity-50 overflow-hidden" v-html="t"></p>
 				</mk-card>
 			</div>
 			<div class="col">
