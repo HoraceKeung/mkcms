@@ -109,6 +109,11 @@ export default {
 			segments.pop()
 			this.$router.push(`${segments.join('/')}/${targetIndex}`)
 		},
+		goBack () {
+			const p = this.$route.path.split('/')
+			p.pop()
+			this.$router.push(p.join('/'))
+		},
 		addInputFromComboBtn (btn) {
 			const key = (() => {
 				switch (btn) {
@@ -138,7 +143,7 @@ export default {
 				clone[index] = this.body
 			}
 			fireDb.ref(this.charComboPath).set(clone, err => {
-				if (index === 'new' && !err) this.$router.go('-1')
+				if (!err) this.goBack()
 				alert(err || 'Data saved successfully!')
 			})
 		},
