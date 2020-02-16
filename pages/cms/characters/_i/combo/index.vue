@@ -64,10 +64,12 @@ export default {
 	},
 	methods: {
 		formatName (variationId) {
-			if (this.characterModel) {
-				const foundVariation = this.characterModel.variations.find(v => v.id === variationId)
-				return foundVariation && foundVariation.name ? foundVariation.name + ` (${variationId})` : variationId
-			} else { return variationId }
+			if (variationId) {
+				if (this.characterModel) {
+					const foundVariation = this.characterModel.variations.find(v => v.id === variationId)
+					return foundVariation && foundVariation.name ? foundVariation.name + ` (${variationId})` : variationId
+				} else { return variationId }
+			} else { return 'Universal' }
 		},
 		view (item, index) {
 			let clone = JSON.parse(JSON.stringify(item))
