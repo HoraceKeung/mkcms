@@ -15,8 +15,8 @@
 				<input id="description-input" class="form-control" v-model="body.description">
 			</div>
 			<div class="form-group">
-				<label for="gif-input">Gif</label>
-				<input id="gif-input" class="form-control" v-model="body.gif">
+				<label for="gifUrl-input">Gif URL</label>
+				<input id="gifUrl-input" class="form-control" v-model="body.gifUrl">
 			</div>
 			<div class="form-group">
 				<label for="damage-input">Damage</label>
@@ -175,7 +175,7 @@ export default {
 			variationId: null,
 			category: null,
 			tags: [],
-			gif: null,
+			gifUrl: null,
 			publishDate: null
 		},
 		body: null,
