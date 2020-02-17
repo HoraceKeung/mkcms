@@ -84,7 +84,7 @@ export default {
 		copyAllRawInput () {
 			this.copyToClipboard(this.charSnapshot.map(x => {
 				return x.input.replace(/\|/g, '')
-			}).join('\n'))
+			}).reverse().join('\n'))
 			alert('Copied to clipboard')
 		},
 		copyToClipboard (str) {
