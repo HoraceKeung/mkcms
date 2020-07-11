@@ -3,12 +3,7 @@
 @import 'tailwindcss/utilities';
 
 @import './font.css';
-@import 'swiper/css/swiper.css';
 @import 'flatpickr/dist/flatpickr.css';
-
-:root {
-	--swiper-theme-color: #fda90f;
-}
 
 html {
 	font-family: rc, Arial, Helvetica, sans-serif;
@@ -103,13 +98,6 @@ button:disabled {
 .modal {
 	box-shadow: 0 0 60px rgba(253,169,15,.5);
 	@apply border border-gold bg-coal-800 flex flex-col p-4
-}
-/* swiper */
-.swiper-button-prev, .swiper-button-next {
-	@apply outline-none
-}
-.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
-	@apply opacity-0
 }
 /* Tiptap */
 .ProseMirror {

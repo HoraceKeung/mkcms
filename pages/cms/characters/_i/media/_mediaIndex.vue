@@ -7,7 +7,7 @@
 
 <script>
 import {fireDb} from '~/plugins/firebase.js'
-import uuid from 'uuid/v4'
+import { v4 as uuid } from 'uuid'
 import mediaMixin from '~/assets/js/mediaMixin'
 export default {
 	mixins: [mediaMixin],

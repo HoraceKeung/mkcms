@@ -78,7 +78,7 @@
 
 <script>
 import {fireDb} from '~/plugins/firebase.js'
-import uuid from 'uuid/v4'
+import { v4 as uuid } from 'uuid'
 import TagSelect from '~/components/TagSelect'
 export default {
 	layout: 'form',
